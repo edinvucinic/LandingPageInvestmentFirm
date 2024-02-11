@@ -20,7 +20,8 @@ html
     <header class="hero">
       <div id="navbar" class="navbar top">
         <h1 class="logo">
-          <span class="text-primary"><i class="fas fa-book-open"></i> Capital</span
+          <span class="text-primary"
+            ><i class="fas fa-book-open"></i> Capital</span
           >Edge
         </h1>
         <nav>
@@ -41,46 +42,45 @@ html
         >
       </div>
     </header>
-    
-    <main>
 
-        <!-- About: Icons -->
-        <section id="about" class="icons bg-light">
-          <div class="flex-items">
+    <main>
+      <!-- About: Icons -->
+      <section id="about" class="icons bg-light">
+        <div class="flex-items">
+          <div>
+            <i class="fas fa-university fa-2x"></i>
             <div>
-              <i class="fas fa-university fa-2x"></i>
-              <div>
-                <h3>Investment Banking</h3>
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Tempore, iusto!
-                </p>
-              </div>
-            </div>
-            <div>
-              <i class="fas fa-book-reader fa-2x"></i>
-              <div>
-                <h3>Portfolio Manager</h3>
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Tempore, iusto!
-                </p>
-              </div>
-            </div>
-            <div>
-              <i class="fas fa-pencil-alt fa-2x"></i>
-              <div>
-                <h3>Tax & Custodial</h3>
-                <p>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Tempore, iusto!
-                </p>
-              </div>
+              <h3>Investment Banking</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Tempore, iusto!
+              </p>
             </div>
           </div>
-        </section>
+          <div>
+            <i class="fas fa-book-reader fa-2x"></i>
+            <div>
+              <h3>Portfolio Manager</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Tempore, iusto!
+              </p>
+            </div>
+          </div>
+          <div>
+            <i class="fas fa-pencil-alt fa-2x"></i>
+            <div>
+              <h3>Tax & Custodial</h3>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Tempore, iusto!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-         <!-- About:Solutions -->
+      <!-- About:Solutions -->
       <section class="solutions flex-columns">
         <div class="row">
           <div class="column">
@@ -206,7 +206,10 @@ html
               <h4>April 16 2020</h4>
               <h2>Blog Post One</h2>
               <p>
-                Welcome to our investment company's blog, where we delve into market trends, financial strategies, and wealth-building insights.Discover expert analysis, tips, and updates to empower your financial journey with our trusted investment advisors.
+                Welcome to our investment company's blog, where we delve into
+                market trends, financial strategies, and wealth-building
+                insights.Discover expert analysis, tips, and updates to empower
+                your financial journey with our trusted investment advisors.
               </p>
               <a href="blog.html" class="btn btn-outline">
                 <i class="fas fa-chevron"></i>
@@ -290,8 +293,57 @@ html
         </div>
       </section>
     </main>
+    <footer class="footer bg-dark">
+      <div class="social">
+        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
+        <a href="#"><i class="fab fa-linkedin fa-2x"></i></a>
+      </div>
+      <p>Copyright &copy; 2020 - EdgeLedger</p>
+    </footer>
 
+    <script
+      src="https://code.jquery.com/jquery-3.5.0.min.js"
+      integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/lightbox.min.js"></script>
+    <script>
+      const navbar = document.getElementById("navbar");
+      let scrolled = false;
 
-  
+      window.onscroll = function () {
+        if (window.pageYOffset > 100) {
+          navbar.classList.remove("top");
+          if (!scrolled) {
+            navbar.style.transform = "translateY(-70px)";
+          }
+          setTimeout(function () {
+            navbar.style.transform = "translateY(0)";
+            scrolled = true;
+          }, 200);
+        } else {
+          navbar.classList.add("top");
+          scrolled = false;
+        }
+      };
 
+      // Smooth Scrolling
+      $("#navbar a, .btn").on("click", function (e) {
+        if (this.hash !== "") {
+          e.preventDefault();
+
+          const hash = this.hash;
+
+          $("html, body").animate(
+            {
+              scrollTop: $(hash).offset().top - 100,
+            },
+            800
+          );
+        }
+      });
+    </script>
+  </body>
 </html>
